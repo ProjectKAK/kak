@@ -1,0 +1,20 @@
+      <h1>Users#new</h1>
+      <p>Please Sign Up In</p>
+
+      <%= form_for @user do |f| %>
+          <div>
+          <%= f.text_field :email %>
+          </div>
+          <div>
+            <%= f.text_field :password %>
+          </div>
+
+          <div>
+            <%= f.text_field :password %>
+          </div>
+
+          <div>
+            <%= f.submit %>
+          </div>
+      <% end %>
+      
