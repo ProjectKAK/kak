@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  root "site#index"
 
+  get 'site/index', to: "site#index"
+
+  post 'site/search', to: 'site#search'
+
+  get 'site/results', to: 'site#results'
+
+  
   get "/login", to: "sessions#new"
 
   post "/sessions", to: "sessions#create"
