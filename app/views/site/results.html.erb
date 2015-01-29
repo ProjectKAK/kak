@@ -94,7 +94,39 @@ and we need to add the scripts/css files to the asset pipeline -->
 	<% end %>
 </div>
         
+<%= javascript_tag do %>
 
+$( document ).ready(function() {
+
+  var $container = $("#recipes-container");
+  var $f = $('#test');
+
+
+  $('.filter_button').on("click", function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "/site/sandbox.json",
+        data: {recipes:<%= raw @recipes.to_json %>},
+        success: function(recipes)
+        {
+          $('#recipes-container').empty();
+
+          $.each(recipes, function(index,value){
+
+            console.log(recipes[0]);
+            });
+
+        },
+        dataType: "json"
+      });
+    });
+});
+
+
+
+
+<% end %>
 
 <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
