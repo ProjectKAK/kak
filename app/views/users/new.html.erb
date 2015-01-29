@@ -4,8 +4,7 @@
 
       <%= bootstrap_form_for @user do |f| %>
           <div>
-<<<<<<< HEAD
-            <%= f.text_field :first_name, placeholder: "First name" %>
+            <%= f.text_field :first_name, placeholder: "First Name" %>
           </div>
           <div>
             <%= f.text_field :last_name, placeholder: "Last Name" %>
@@ -16,36 +15,17 @@
           <div>
             <%= f.text_field :password, placeholder: "Password" %>
           </div>
-
           <div>
-            <%= f.text_field :password_confirmation, placeholder: "Password confirmation" %>
+            <%= f.text_field :password_confirmation, placeholder: "Confirm Password" %>
           </div>
-
           <div>
             <%= f.text_field :city, placeholder: "City" %>
           </div>  
-
           <div>
             <%= f.text_field :state, placeholder: "State" %>
           </div>  
-
-
-         <div>
-            <%= f.submit %>
-=======
-          <%= f.text_field :email, placeholder: "Email" %>
-          </div>
-          <div>
-            <%= f.password_field :password, placeholder: "Password" %>
-          </div>
-
-          <div>
-            <%= f.password_field :password, placeholder: "Confirm Password" %>
-          </div>
-
           <div>
             <%= f.submit "Signup"%>
->>>>>>> 66c7b314cb4fa30ee8f4df6eda9b93e98da018ff
           </div>
       <% end %>
     
