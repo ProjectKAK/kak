@@ -1,5 +1,4 @@
 class SiteController < ApplicationController
-<<<<<<< HEAD
   attr_accessor :recipes
 
   def index
@@ -29,7 +28,6 @@ class SiteController < ApplicationController
   def results
   end
 
-=======
   def index
   end
 
@@ -38,5 +36,4 @@ class SiteController < ApplicationController
 
   def contact
   end
->>>>>>> password_reset
 end

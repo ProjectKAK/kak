@@ -1,25 +1,14 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   root "site#index"
 
   get 'site/index', to: "site#index"
-
-  post 'site/search', to: 'site#search'
-
   get 'site/results', to: 'site#results'
-
-  
-  get "/login", to: "sessions#new"
-
-  post "/sessions", to: "sessions#create"
-=======
-  root to: "site#index"
-
-  # get 'site/index'
   get "site/about"
   get "site/contact"
->>>>>>> password_reset
+  post 'site/search', to: 'site#search'
 
+  
+  post "/sessions", to: "sessions#create"
   get "/sign_up", to: "users#new", as: "sign_up"
   get "/login", to: "sessions#new", as: "login"
 
