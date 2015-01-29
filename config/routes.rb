@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   get "/sign_up", to: "users#new", as: "sign_up"
   get "/login", to: "sessions#new", as: "login"
-
+  post 'site/sandbox.json', to: 'site#sandbox'
+  
   # post "/sessions", to: "sessions#create"
 
   delete "logout", to: "sessions#destroy"

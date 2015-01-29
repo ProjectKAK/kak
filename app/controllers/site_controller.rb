@@ -254,21 +254,17 @@ def search
         if recipe[1]["attributes"]["cuisine"]
             recipe[1]["attributes"]["cuisine"].each do | c |
                 if c == "Italian"
-                    p c
                     link = "http://api.yummly.com/v1/api/recipe/"+recipe[1]["id"]+"?_app_id="+app_id+"&_app_key="+app_key
                     # NOTE - uncomment the code below when you are ready to make API calls
                     response = Typhoeus.get(link)
                     parsed = JSON.parse(response.body) #this is a hash    
                     ingredients = parsed["ingredientLines"]   
-                    recipe[1]["ing"] = ingredients 
-
-                    p recipe[1]["ing"]
+                    recipe[1]["ingredientLines"] = ingredients 
+                    p recipe[1]["ingredientLines"]
                 end
             end
         end            
     end
-
-    p @recipes.length
 
     respond_to do |f|
       # note how for HTML requests we still want to redirect
