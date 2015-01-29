@@ -7,8 +7,13 @@ before_action :logged_in?, only: [ :show ]
   end
 
   def create
-  	@user = User.create(user_params)
-  	redirect_to user_path(@user.id)
+  	user = User.create(user_params)
+    if user.save
+      login user
+      redirect_to root_path
+    else
+      redirect_to sign_up_path
+    end
   end
 
   def show

@@ -1,0 +1,11 @@
+<div class="jumbotron" id="static">
+	<div class="container">
+
+		Enter your email to reset password<br>
+		<br>
+		<%= form_tag passwords_path do %>
+		<%= text_field_tag :email, nil, placeholder: "Enter your email" %>
+		<%= submit_tag "Reset Password" %>
+		<% end %>
+	</div>
+</div>

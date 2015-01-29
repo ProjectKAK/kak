@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -35,6 +36,10 @@ gem "typhoeus"
 # gem 'capistrano-rails', group: :development
 group :production do
   gem 'rails_12factor'
+end
+
+group :development do
+  gem "letter_opener"
 end
 
 group :development, :test do
