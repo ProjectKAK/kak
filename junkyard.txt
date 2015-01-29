@@ -1,0 +1,122 @@
+
+  <% @filtered_recipes = [] %>
+
+
+  <% @recipes.each do | recipe | %>
+    <% if recipe["attributes"]["cuisine"] %>
+      <% recipe["attributes"]["cuisine"].each do | cuisine | %>
+
+        <% if :div.id == cuisine.to_s %>
+          <% @filtered_recipes.push(recipe) %>
+        <% end %>          
+
+        if (div.id == '<%= cuisine %>')
+        {
+          <% @filtered_recipes.push(recipe) %>
+          console.log('<%= recipe["recipeName"] %>');
+        }
+        <% end %>
+    <% end %> 
+  <% end %>
+
+  console.log('<%= @filtered_recipes.length %>');
+  <% @filtered_recipes.each do | recipe | %>
+
+    $('#recipes-container').append("<%= escape_javascript render partial: 'site/recipe', locals: {recipe:recipe} %>");
+  <% end %>
+
+
+
+
+
+
+    <%= render partial: "site/recipe", locals: { recipes: @recipes } %>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+          <label>Cuisines</label>
+          <% @cuisines.each do | cuisine | %>
+            <label class="">
+                <input type="checkbox" id="search" value="<%= cuisine %>" class="filter_button"> <%= cuisine %>
+            </label>
+          <% end %>      
+      </div>
+    </div>
+
+
+
+
+	<% @recipes.each do |recipe| %>
+  <div id='<%= recipe["id"] %>'>
+  <div class="row">
+    <div class="col-xs-12">  
+  		<div><h1><%= recipe["recipeName"] %></h1></div>
+  		<div>Rating: <%= recipe["rating"] %></div>
+      
+      <div>Courses:
+        <% if recipe["attributes"]["course"] %>
+          <% recipe["attributes"]["course"].each do |course |%>
+            <div><%= course %> </div>
+          <% end %> 
+        <% end %>        
+      </div>
+      
+      <div>Cuisines: 
+        <% if recipe["attributes"]["cuisine"] %>
+          <% recipe["attributes"]["cuisine"].each do | cuisine|%>
+            <div id='<%= recipe["id"]%>'><%= cuisine %> </div>
+          <% end %> 
+        <% end %>
+      </div>
+
+      <% if recipe["flavors"] %>
+        <div> Flavor Rating<br/>
+
+          <% if recipe["flavors"]["salty"] %>      
+            Salty: <%= recipe["flavors"]["salty"] %> <br/>
+          <% end %>
+
+
+          <% if recipe["flavors"]["sour"] %>      
+            Sour: <%= recipe["flavors"]["sour"] %> <br/>
+          <% end %>
+
+          <% if recipe["flavors"]["sweet"] %>      
+            Sweet: <%= recipe["flavors"]["sweet"] %> <br/>
+          <% end %>
+
+          <% if recipe["flavors"]["bitter"] %>      
+            Bitter: <%= recipe["flavors"]["bitter"] %> <br/>
+          <% end %>
+
+          <% if recipe["flavors"]["piquant"] %>      
+            Piquant: <%= recipe["flavors"]["piquant"] %> <br/>
+          <% end %>
+
+          <% if recipe["flavors"]["meaty"] %>      
+            Meaty: <%= recipe["flavors"]["meaty"] %> <br/>
+          <% end %>
+
+        </div>
+      <% end %>
+      <div>Total Time: <%= recipe["totalTimeInSeconds"] %></div>
+
+      <div>Ingredients<br/>
+        <% recipe["ingredients"].each do | ingredient |%>
+          <%= ingredient %> <br/>
+        <% end %> 
+      </div>
+    </div>
+  </div>
+  </div>
+	<% end %>
+</div>
+
+
+
+
+

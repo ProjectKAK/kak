@@ -16,6 +16,7 @@ before_action :logged_in?, only: [ :show ]
   end
 
   def create
+<<<<<<< HEAD
   	@user = User.create(user_params)
     
         if @user.save
@@ -26,6 +27,15 @@ before_action :logged_in?, only: [ :show ]
         
   end
 
+=======
+  	user = User.create(user_params)
+    if user.save
+      login user
+      redirect_to root_path
+    else
+      redirect_to sign_up_path
+    end
+>>>>>>> 66c7b314cb4fa30ee8f4df6eda9b93e98da018ff
   end
 
   def show

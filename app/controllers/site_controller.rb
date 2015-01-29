@@ -75,4 +75,12 @@ class SiteController < ApplicationController
   def results
   end
 
+  def index
+  end
+
+  def about
+  end
+
+  def contact
+  end
 end
