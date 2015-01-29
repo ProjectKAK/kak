@@ -29,7 +29,18 @@ and we need to add the scripts/css files to the asset pipeline -->
 
 <div class="container">
 
-
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+          <label>Cuisines</label>
+          <% @cuisines.each do | cuisine | %>
+            <label class="">
+                <input type="checkbox" id="<%= cuisine %>" value="<%= cuisine %>" class="filter_button"> <%= cuisine %>
+            </label>
+          <% end %>      
+      </div>
+    </div>
+  </div>
 	<% @recipes.each do |recipe| %>
 		<div><h1><%= recipe["recipeName"] %></h1></div>
 		

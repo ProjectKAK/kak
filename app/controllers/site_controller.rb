@@ -237,8 +237,6 @@ def search
                 "recipeName"=> "Tomato Lentil Soup"
             }
           ]
-#Update to display only cuisines that are available
-#loop through and search to match it matches the master list of cuisines
 
     @cuisines = ["American", "Italian", "Asian", "Mexican", "Southern/Soul Food", "French", "Southwestern", "Barbecue", "Indian", "Chinese", "Cajun/Creole", "English", "Mediterranean", "Greek", "Spanish", "German", "Thai", "Moroccan", "Irish", "Japanese", "Cuban", "Hawaiian", "Swedish", "Hungarian", "Portugese"]
 
