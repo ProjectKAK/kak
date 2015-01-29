@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   post "/passwords/:id", to: "passwords#update"
 
   resources :users
-<<<<<<< HEAD
   resource :sessions
   resources :site
+  resources :sessions, only: [:create, :destroy]
  
   resources :useringredients
 
@@ -70,9 +70,6 @@ end
 #                     PATCH  /useringredients/:id(.:format)      useringredients#update
 #                     PUT    /useringredients/:id(.:format)      useringredients#update
 #                     DELETE /useringredients/:id(.:format)      useringredien
-=======
-  resources :sessions, only: [:create, :destroy]
-end
 
 #        Prefix Verb   URI Pattern               Controller#
 # 
@@ -100,4 +97,3 @@ end
 #               PATCH  /sessions(.:format)       sessions#update
 #               PUT    /sessions(.:format)       sessions#update
 #               DELETE /sessions(.:format)       sessions#destroy
->>>>>>> 66c7b314cb4fa30ee8f4df6eda9b93e98da018ff

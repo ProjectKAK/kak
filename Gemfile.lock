@@ -38,7 +38,6 @@ GIT
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-<<<<<<< HEAD
     rails (4.2.0)
       actionmailer (= 4.2.0)
       actionpack (= 4.2.0)
@@ -59,9 +58,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-=======
     addressable (2.3.6)
->>>>>>> 66c7b314cb4fa30ee8f4df6eda9b93e98da018ff
     arel (6.0.0)
     bcrypt (3.1.9)
     binding_of_caller (0.7.2)
