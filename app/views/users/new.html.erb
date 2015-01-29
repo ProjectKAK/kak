@@ -3,17 +3,32 @@
 
       <%= form_for @user do |f| %>
           <div>
-          <%= f.text_field :email %>
+            <%= f.text_field :first_name, placeholder: "First name" %>
           </div>
           <div>
-            <%= f.text_field :password %>
+            <%= f.text_field :last_name, placeholder: "Last Name" %>
+          </div>
+          <div>
+          <%= f.text_field :email, placeholder: "Email" %>
+          </div>
+          <div>
+            <%= f.text_field :password, placeholder: "Password" %>
           </div>
 
           <div>
-            <%= f.text_field :password %>
+            <%= f.text_field :password_confirmation, placeholder: "Password confirmation" %>
           </div>
 
           <div>
+            <%= f.text_field :city, placeholder: "City" %>
+          </div>  
+
+          <div>
+            <%= f.text_field :state, placeholder: "State" %>
+          </div>  
+
+
+         <div>
             <%= f.submit %>
           </div>
       <% end %>
