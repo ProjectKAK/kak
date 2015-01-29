@@ -1,20 +1,25 @@
-      <h1>Users#new</h1>
-      <p>Please Sign Up In</p>
+<div class="jumbotron" id="static">
+  <div class="container">
+    <div class="form">
 
-      <%= form_for @user do |f| %>
+      <%= bootstrap_form_for @user do |f| %>
           <div>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, placeholder: "Email" %>
           </div>
           <div>
-            <%= f.text_field :password %>
-          </div>
-
-          <div>
-            <%= f.text_field :password %>
+            <%= f.password_field :password, placeholder: "Password" %>
           </div>
 
           <div>
-            <%= f.submit %>
+            <%= f.password_field :password, placeholder: "Confirm Password" %>
+          </div>
+
+          <div>
+            <%= f.submit "Signup"%>
           </div>
       <% end %>
+    
+    </div>
+  </div>
+</div>
       

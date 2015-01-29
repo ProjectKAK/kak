@@ -1,21 +1,37 @@
 Rails.application.routes.draw do
+  root to: "site#index"
 
-  get "/login", to: "sessions#new"
-
-  post "/sessions", to: "sessions#create"
+  # get 'site/index'
+  get "site/about"
+  get "site/contact"
 
   get "/sign_up", to: "users#new", as: "sign_up"
+  get "/login", to: "sessions#new", as: "login"
+
+  # post "/sessions", to: "sessions#create"
 
   delete "logout", to: "sessions#destroy"
 
+  get "passwords/new", to: "passwords#new", as: "new_password"
+  get "passwords/:id/edit", to: "passwords#edit", as: "edit_password"
+  post "/passwords", to: "passwords#create" 
+  post "/passwords/:id", to: "passwords#update"
+
   resources :users
-  resource :sessions
+  resources :sessions, only: [:create, :destroy]
 end
 
-#     login GET    /login(.:format)          sessions#new
+#        Prefix Verb   URI Pattern               Controller#
+# 
+# passwords_new GET    /passwords/new(.:format)  passwords#new
+#    site_index GET    /site/index(.:format)     site#index
+#    site_about GET    /site/about(.:format)     site#about
+#  site_contact GET    /site/contact(.:format)   site#contact
+#         login GET    /login(.:format)          sessions#new
 #      sessions POST   /sessions(.:format)       sessions#create
 #       sign_up GET    /sign_up(.:format)        users#new
 #        logout DELETE /logout(.:format)         sessions#destroy
+#               POST   /passwords/:id(.:format)  passwords#update
 #         users GET    /users(.:format)          users#index
 #               POST   /users(.:format)          users#create
 #      new_user GET    /users/new(.:format)      users#new
