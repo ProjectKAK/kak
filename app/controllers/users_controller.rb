@@ -16,26 +16,12 @@ before_action :logged_in?, only: [ :show ]
   end
 
   def create
-<<<<<<< HEAD
   	@user = User.create(user_params)
-    
-        if @user.save
-  	    redirect_to user_path(@user.id)
-    #render a path for if invalid
-        else
-          render :new
-        
-  end
-
-=======
-  	user = User.create(user_params)
-    if user.save
-      login user
+    if @user.save
       redirect_to root_path
     else
       redirect_to sign_up_path
     end
->>>>>>> 66c7b314cb4fa30ee8f4df6eda9b93e98da018ff
   end
 
   def show
