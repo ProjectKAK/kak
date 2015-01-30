@@ -1,0 +1,42 @@
+<% @recipes.each_with_index do |recipe, index| %>
+
+<% if index%3 == 0 %>
+<div class="row"  style="margin-bottom:40px">
+<% end %>
+<div class="col-xs-4" style="margin: 0 auto">
+	<div class="row">
+		<img src="<%= recipe["image"]%>" >
+	</div>
+
+	<div class="row" style="margin:0 auto">
+		<h6 style="padding:10px" class="filter_button"><strong><%= recipe["recipeName"] %></h6></strong>
+		<h6 ><span class="filter_button"><%= recipe["attributes"]["cuisine"][0]%></span> |
+			<% if recipe["rating"]  < 1 %>
+				no ratings </h6>
+			<% else %>
+				<span class="filter_button"> <%= recipe["rating"] %>  stars</span> </h6>
+			<% end %>
+		</h6>
+	</div>
+
+	<div class="row"  style="text-align:left; margin: 0 auto">
+		<div>
+		<% for i in 0..5 %> 
+			<h6  class="filter_button" style="display:inline; line-height:5px"> <%= recipe["ingredients"][i] %>, </h6>
+
+			<% if i == 5 %>
+			<h6  class="filter_button" style="display:inline; line-height:5px"> <%= recipe["ingredients"][i] %> </h6>
+			<% end %>
+		<% end %>
+		</div>
+		
+		<div>
+			<h6 >total ingredients: <span class="filter_button"><%= recipe["ingredients"].length %> </span></h6>
+		</div>
+	</div>
+</div>
+
+<% if index%3 == 2 %>
+</div>
+<% end %>
+<% end %>

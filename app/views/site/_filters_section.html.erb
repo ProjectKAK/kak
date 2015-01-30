@@ -1,0 +1,4 @@
+<h4>Cuisine(s):</h4>
+<% @cuisines.each do | cuisine | %>
+  <div style="padding:8px" id="<%= cuisine %>" value="<%= cuisine %>" class="filter_button"> <%= cuisine %></div>
+<% end %>      
