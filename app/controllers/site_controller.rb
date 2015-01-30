@@ -11,7 +11,7 @@ def search
     app_key=ENV["APP_KEY"]
     yummly_api ="http://api.yummly.com/v1/api/recipes?_app_id="+app_id+"&_app_key="+app_key+"&"
 
-    max_results = 6
+    max_results = 18
     allowed_cuisines = "&allowedCuisine[]=cuisine^cuisine-american&allowedCuisine[]=cuisine^cuisine-italian"
     query_params = "q=" + params["searchbox"].gsub(/\s/, "+") + "&requirePictures=true&maxResult="+ max_results.to_s + allowed_cuisines
     # concatenating all the phrases into one long link
