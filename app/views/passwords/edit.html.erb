@@ -1,0 +1,12 @@
+<div class="jumbotron" id="static">
+	<div class="container">	
+		<div class="form">	
+			<%= @user.email %>
+			<%= bootstrap_form_for :user, url: "/passwords/#{@user.code}" do |f| %>
+			  <%= f.password_field :password %>
+			  <%= f.password_field :password_confirmation %>
+			  <%= f.submit "Update" %>
+			<% end %>
+		</div>
+	</div>
+</div>

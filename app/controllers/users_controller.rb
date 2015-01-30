@@ -1,6 +1,15 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
 #before_action :find_user, exept: [:index, :new, :create]
 before_action :logged_in?, only: [ :show ]
+
+  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users}
+    end
+  end
 
   def new
   	@user = User.new
@@ -8,7 +17,11 @@ before_action :logged_in?, only: [ :show ]
 
   def create
   	@user = User.create(user_params)
-  	redirect_to user_path(@user.id)
+    if @user.save
+      redirect_to root_path
+    else
+      redirect_to sign_up_path
+    end
   end
 
   def show
@@ -22,7 +35,7 @@ before_action :logged_in?, only: [ :show ]
   private
 
   def user_params
-  	params.require(:user).permit(:email, :password, :password_confirmation)
+  	params.require(:user).permit(:first_name, :last_name, :email, :gender, :password, :password_confirmation)
   end
 
   def find_user

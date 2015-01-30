@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kak</title>
+  <title>Ripe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	<nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Ripe</a>
+        </div>
+
+          <ul class="nav navbar-nav">
+          	<li><a href="/site/about">ABOUT</a></li>
+            <li><a href="/site/contact">CONTACT</a></li>
+          </ul>
+
+          <% if current_user %>
+          	  <ul class="nav navbar-nav navbar-right">
+	            <li><a href="/users/">PROFILE</a></li>
+	            <li><a href="/users/show">LOGOUT</a></li>
+	          </ul>
+	      <% else %>
+	      	  <ul class="nav navbar-nav navbar-right">
+	            <li><a href="/sign_up">SIGNUP</a></li>
+	            <li><a href="/login">LOGIN</a></li>
+	          </ul>
+		  <% end %>
+      </div>
+    </nav>
 
 <%= yield %>
 

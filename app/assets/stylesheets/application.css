@@ -10,6 +10,80 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-3.2.0.min.css
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+	background: 0 0;
+	box-shadow: 0 0 0 rgba(17,17,17,.3);
+	padding: .5rem 0;
+	position: fixed;
+	width: 100%;
+	z-index: 5;
+}
+
+.navbar-brand {
+	font-family: 'Pinyon Script', cursive;
+	font-size: 3em;
+	color: #FF7300;
+}
+
+#homeimg {
+	background: url('http://i.imgur.com/KM4BUV3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 1401px;
+    opacity: .8;
+}
+
+#mainsearch {
+	position: fixed;
+	text-align: center;
+ 	margin-top: 23%;
+ 	margin-left: 20%;
+ 	margin-bottom: 25%;
+}
+
+#searchbox {
+	width: 40em;
+}
+
+
+
+.form {
+	position: fixed;
+	text-align: center;
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+#static {
+	background-color: #7F6D5F;
+	height: 1401px;
+	text-align: center;
+}
+
+#aboutborder {
+	border: solid;
+	position: fixed;
+ 	margin-top: 10%;
+ 	margin-left: 7%;
+}
+
+#brand {
+	font-family: 'Pinyon Script', cursive;
+	color: #FF7300;
+}
+
+#contactborder {
+	border: solid;
+	position: fixed;
+ 	margin-top: 10%;
+ 	margin-left: 7%;
+}
