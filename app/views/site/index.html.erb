@@ -3,9 +3,9 @@
 
     <%= form_tag '/site/search', :id => "mainsearch", class: "form-inline" do -%>
       <div class="form-group">
-        <%= text_field_tag 'searchbox', nil, class: "form-control", placeholder: "soup, chicken, chocolate chip" %> 
+        <%= text_field_tag 'searchbox', nil, class: "form-control", placeholder: "Already have ingredients at home? Don't know what to cook? We'll also pair it with alcohol for you." %> 
       </div>
-        <%= submit_tag 'Search', class:"btn btn-default" %>
+        <%= submit_tag 'Search Recipes', class:"btn btn-default" %>
     <% end -%>
 
   </div>

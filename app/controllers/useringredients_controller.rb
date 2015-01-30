@@ -7,7 +7,7 @@ class UseringredientsController < ApplicationController
       format.html
       format.json { render json: @useringredient}
     end
-end
+  end
 
 	def new
 		@useringredient = Useringredient.new
@@ -19,15 +19,15 @@ end
   	   redirect_to useringredient_path(@useringredient.id)
      end
 
-  	def show
-  		 @useringredient = Useringredient.find(params[:id])
-    	 render :show
-
-  	end
+	def show
+		 @useringredient = Useringredient.find(params[:id])
+  	 render :show
+	end
 
 end
 
 private
+
 	def useringredient_params
   		params.require(:useringredient).permit(:name)
-  	end
+  end
