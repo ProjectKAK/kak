@@ -2,141 +2,118 @@
 <!-- we need to refactor this section to be part of layouts/application 
 and we need to add the scripts/css files to the asset pipeline -->
 
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <meta charset="utf-8">
-        <title>Bootply.com - Bootstrap Navbar Static top Template</title>
-        <meta name="generator" content="Bootply" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-        
-        <!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
-        <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
 
+<div class="jumbotron" id="static">
+  <div class="container" id="results">
 
-        
-        <style type="text/css">
-            
-        </style>
-    </head>
-    
-
-
-<div class="container">
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="form-group">
-          <label>Cuisines</label>
-          <% @cuisines.each do | cuisine | %>
-            <label class="">
-                <input type="checkbox" id="<%= cuisine %>" value="<%= cuisine %>" class="filter_button"> <%= cuisine %>
-            </label>
-          <% end %>      
+      <div class="col-md-4" id="filters">
+        <div class="form-group">
+            <label>Cuisine(s):</label>
+            <% @cuisines.each do | cuisine | %><br>
+              <label class="">
+                  <input type="checkbox" id="<%= cuisine %>" value="<%= cuisine %>" class="filter_button"> <%= cuisine %>
+              </label>
+            <% end %>      
+        </div>
       </div>
-    </div>
-  </div>
-	<% @recipes.each do |recipe| %>
-		<div><h1><%= recipe["recipeName"] %></h1></div>
-		
-    <div>ID: <%= recipe["id"] %></div>		
-		<div>Rating: <%= recipe["rating"] %></div>
-    
-    <div>Courses:
-      <% if recipe["attributes"]["course"] %>
-        <% recipe["attributes"]["course"].each do |course |%>
-          <%= course %> 
-        <% end %> 
-      <% end %>        
-    </div>
-    
-    <div>Cuisines: 
-      <% if recipe["attributes"]["cuisine"] %>
-        <% recipe["attributes"]["cuisine"].each do | cuisine|%>
-          <%= cuisine %> 
-        <% end %> 
-      <% end %>
-    </div>
 
-    <% if recipe["flavors"] %>
-      <div> Flavor Rating<br/>
+      <div class="col-md-8">
+      	<% @recipes.each do |recipe| %>
+      		<div><h2><%= recipe["recipeName"] %></h2></div>
+      		
+          <div>ID: <%= recipe["id"] %></div>		
+      		<div>Rating: <%= recipe["rating"] %></div>
+          
+          <div>Courses:
+            <% if recipe["attributes"]["course"] %>
+              <% recipe["attributes"]["course"].each do |course |%>
+                <%= course %> 
+              <% end %> 
+            <% end %>        
+          </div>
+          
+          <div>Cuisines: 
+            <% if recipe["attributes"]["cuisine"] %>
+              <% recipe["attributes"]["cuisine"].each do | cuisine|%>
+                <%= cuisine %> 
+              <% end %> 
+            <% end %>
+          </div>
 
-        <% if recipe["flavors"]["salty"] %>      
-          Salty: <%= recipe["flavors"]["salty"] %> <br/>
-        <% end %>
+          <% if recipe["flavors"] %>
+            <div> Flavor Rating<br/>
+
+              <% if recipe["flavors"]["salty"] %>      
+                Salty: <%= recipe["flavors"]["salty"] %> <br/>
+              <% end %>
 
 
-        <% if recipe["flavors"]["sour"] %>      
-          Sour: <%= recipe["flavors"]["sour"] %> <br/>
-        <% end %>
+              <% if recipe["flavors"]["sour"] %>      
+                Sour: <%= recipe["flavors"]["sour"] %> <br/>
+              <% end %>
 
-        <% if recipe["flavors"]["sweet"] %>      
-          Sweet: <%= recipe["flavors"]["sweet"] %> <br/>
-        <% end %>
+              <% if recipe["flavors"]["sweet"] %>      
+                Sweet: <%= recipe["flavors"]["sweet"] %> <br/>
+              <% end %>
 
-        <% if recipe["flavors"]["bitter"] %>      
-          Bitter: <%= recipe["flavors"]["bitter"] %> <br/>
-        <% end %>
+              <% if recipe["flavors"]["bitter"] %>      
+                Bitter: <%= recipe["flavors"]["bitter"] %> <br/>
+              <% end %>
 
-        <% if recipe["flavors"]["piquant"] %>      
-          Piquant: <%= recipe["flavors"]["piquant"] %> <br/>
-        <% end %>
+              <% if recipe["flavors"]["piquant"] %>      
+                Piquant: <%= recipe["flavors"]["piquant"] %> <br/>
+              <% end %>
 
-        <% if recipe["flavors"]["meaty"] %>      
-          Meaty: <%= recipe["flavors"]["meaty"] %> <br/>
-        <% end %>
+              <% if recipe["flavors"]["meaty"] %>      
+                Meaty: <%= recipe["flavors"]["meaty"] %> <br/>
+              <% end %>
 
+            </div>
+          <% end %>
+          <div>Total Time: <%= recipe["totalTimeInSeconds"] %></div>
+
+          <div>Ingredients<br/>
+            <% recipe["ingredients"].each do | ingredient |%>
+              <%= ingredient %> <br/>
+            <% end %> 
+          </div>
+          .....
+
+      	<% end %>
       </div>
-    <% end %>
-    <div>Total Time: <%= recipe["totalTimeInSeconds"] %></div>
+              
+      <%= javascript_tag do %>
 
-    <div>Ingredients<br/>
-      <% recipe["ingredients"].each do | ingredient |%>
-        <%= ingredient %> <br/>
-      <% end %> 
-    </div>
+      $( document ).ready(function() {
 
-
-	<% end %>
-</div>
-        
-<%= javascript_tag do %>
-
-$( document ).ready(function() {
-
-  var $container = $("#recipes-container");
-  var $f = $('#test');
+        var $container = $("#recipes-container");
+        var $f = $('#test');
 
 
-  $('.filter_button').on("click", function (event) {
-      event.preventDefault();
-      $.ajax({
-        type: "POST",
-        url: "/site/sandbox.json",
-        data: {recipes:<%= raw @recipes.to_json %>},
-        success: function(recipes)
-        {
-          $('#recipes-container').empty();
+        $('.filter_button').on("click", function (event) {
+            event.preventDefault();
+            $.ajax({
+              type: "POST",
+              url: "/site/sandbox.json",
+              data: {recipes:<%= raw @recipes.to_json %>},
+              success: function(recipes)
+              {
+                $('#recipes-container').empty();
 
-          $.each(recipes, function(index,value){
+                $.each(recipes, function(index,value){
 
-            console.log(recipes[0]);
+                  console.log(recipes[0]);
+                  });
+
+              },
+              dataType: "json"
             });
-
-        },
-        dataType: "json"
+          });
       });
-    });
-});
 
 
 
 
-<% end %>
+      <% end %>
 
-        
+</div>       

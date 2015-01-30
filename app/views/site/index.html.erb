@@ -3,7 +3,7 @@
 
     <%= form_tag '/site/search', :id => "mainsearch", class: "form-inline" do -%>
       <div class="form-group">
-        <%= text_field_tag 'searchbox', nil, class: "form-control" %> 
+        <%= text_field_tag 'searchbox', nil, class: "form-control", placeholder: "soup, chicken, chocolate chip" %> 
       </div>
         <%= submit_tag 'Search', class:"btn btn-default" %>
     <% end -%>

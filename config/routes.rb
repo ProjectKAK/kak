@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "site#index"
 
-  get 'site/index', to: "site#index"
+  # get 'site/index', to: "site#index"
   get 'site/results', to: 'site#results'
   get "site/about"
   get "site/contact"
@@ -16,14 +16,15 @@ Rails.application.routes.draw do
   # post "/sessions", to: "sessions#create"
 
   delete "logout", to: "sessions#destroy"
+  get "/logout", to: "sessions#destroy"
 
   get "passwords/new", to: "passwords#new", as: "new_password"
   get "passwords/:id/edit", to: "passwords#edit", as: "edit_password"
   post "/passwords", to: "passwords#create" 
   post "/passwords/:id", to: "passwords#update"
 
-  resources :users
-  resource :sessions
+  get "/profile", to: "users#profile"
+  resources :users, except: [:show]
   resources :site
   resources :sessions, only: [:create, :destroy]
  
