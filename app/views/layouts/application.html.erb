@@ -22,15 +22,15 @@
 
           <% if current_user %>
           	  <ul class="nav navbar-nav navbar-right">
-	            <li><a href="/users/">PROFILE</a></li>
-	            <li><a href="/users/show">LOGOUT</a></li>
+	            <li><a href="/profile">PROFILE</a></li>
+	            <li><a href="/logout">LOGOUT</a></li>
 	          </ul>
-	      <% else %>
+          <% else %>
 	      	  <ul class="nav navbar-nav navbar-right">
 	            <li><a href="/sign_up">SIGNUP</a></li>
 	            <li><a href="/login">LOGIN</a></li>
 	          </ul>
-		  <% end %>
+		      <% end %>
       </div>
     </nav>
 

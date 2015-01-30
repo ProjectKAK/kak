@@ -1,0 +1,39 @@
+<div class="jumbotron" id="static">
+  	<div class="col-md-3">
+  	</div>
+	<div class="col-md-3">
+  		<div class="img-profile">
+  		</div>
+  		<br>
+  			<button class="btn btn-default" type="submit">
+  				<a href="#">Change Photo</a>
+  			</button>
+  			<br>
+  			<br>
+			<button class="btn btn-default" type="submit">
+				<a href="/useringredients/new">ADD INGREDIENTS</a>
+			</button>
+	</div>
+
+	<div class="col-md-3">
+		<div class="profile">
+		<%= bootstrap_form_for @user do |f| %>
+			<%= f.text_field :first_name %>
+			<%= f.text_field :last_name %>
+			<%= f.radio_button :gender, 0, label: "Female", checked: true %>
+  			<%= f.radio_button :gender, 1, label: "Male", checked: false %>
+			<%= f.password_field :password %>
+			<%= f.password_field :password_confirmation %>
+			<%= f.text_field :city %>
+			<%= f.text_field :state %>
+			<%= f.text_field :country %>
+			<%= f.text_area :description, placeholder: "Tell us about yourself..." %>
+	
+			<%= f.submit "Update" %>
+		<% end %>
+		</div>
+	</div>
+	<div class="col-md-3">
+	</div>
+</div>
+

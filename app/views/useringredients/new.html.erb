@@ -1,5 +1,10 @@
-<%= form_for @useringredient do |f| %>
-  <%= f.label :useringredient %>:
-  <%= f.text_field :name %><br />
-  <%= f.submit %>
-<% end %>
+<div class="jumbotron" id="static">
+  	<div class="container">
+  		<div class="form" id="ingredients">
+			<%= bootstrap_form_for @useringredient do |f| %>
+			  <%= f.text_field :name, placeholder: "eggs, maple syrup, celery" %><br />
+			  <%= f.submit "Add Ingredient"%>
+			<% end %>
+		</div>
+	</div>
+</div>
